@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "225498281601",
+    "project_id": "shramikaya-a2b7f",
+    "storage_bucket": "shramikaya-a2b7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225498281601:android:d050922729407868aabf80",
+        "android_client_info": {
+          "package_name": "com.example.shramikaya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA8rOngja0VZpz2MEZ1ns94ZJ0EybadJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
