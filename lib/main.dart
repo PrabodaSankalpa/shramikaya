@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:shramikaya/screens/authentication/login_screen.dart';
 import 'package:shramikaya/screens/home_page.dart';
+import 'package:shramikaya/utils/colors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,9 +14,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Shramikaya",
+      theme: ThemeData(
+        scaffoldBackgroundColor: silverColor,
+      ),
       home: HomePage(),
     );
   }

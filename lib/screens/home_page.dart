@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shramikaya/screens/jobs_page.dart';
+import 'package:shramikaya/screens/notifications_page.dart';
+import 'package:shramikaya/screens/profile_page.dart';
+import 'package:shramikaya/screens/wishlist_page.dart';
 import 'package:shramikaya/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,93 +13,50 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int navIndex = 0;
+  //Screeen List
+  List<Widget> pagesList = [
+    JobsPage(),
+    WishListPage(),
+    NotificationsPage(),
+    ProfilePage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Shramikaya",
-          style: TextStyle(color: secondaryColor),
-        ),
-        backgroundColor: Colors.white,
-        actions: [
-          IconButton(
-            onPressed: () {
-              showSearch(
-                context: context,
-                delegate: CustomSearchDelegate(),
-              );
-            },
-            icon: const Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          setState(() {
+            navIndex = index;
+          });
+        },
+        currentIndex: navIndex,
+        selectedItemColor: secondaryColor,
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.view_agenda_rounded),
+            label: "Jobs",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark_rounded),
+            label: "Wish List",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: "Notifications",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_rounded),
+            label: "Profile",
           ),
         ],
       ),
-    );
-  }
-}
-
-class CustomSearchDelegate extends SearchDelegate {
-  List<String> searchTerms = [];
-  @override
-  List<Widget>? buildActions(BuildContext context) {
-    return [
-      IconButton(
-        icon: const Icon(Icons.clear),
-        onPressed: () {
-          query = '';
-        },
-      )
-    ];
-  }
-
-  @override
-  Widget? buildLeading(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.arrow_back),
-      onPressed: () {
-        close(context, null);
-      },
-    );
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    List<String> matchQuery = [];
-    for (var item in searchTerms) {
-      if (item.toLowerCase().contains(query.toLowerCase())) {
-        matchQuery.add(item);
-      }
-    }
-    return ListView.builder(
-      itemCount: matchQuery.length,
-      itemBuilder: (context, index) {
-        var result = matchQuery[index];
-        return ListTile(
-          title: Text(result),
-        );
-      },
-    );
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    List<String> matchQuery = [];
-    for (var item in searchTerms) {
-      if (item.toLowerCase().contains(query.toLowerCase())) {
-        matchQuery.add(item);
-      }
-    }
-    return ListView.builder(
-      itemCount: matchQuery.length,
-      itemBuilder: (context, index) {
-        var result = matchQuery[index];
-        return ListTile(
-          title: Text(result),
-        );
-      },
+      body: Scaffold(
+        body: Container(
+          child: pagesList[navIndex],
+        ),
+      ),
     );
   }
 }
