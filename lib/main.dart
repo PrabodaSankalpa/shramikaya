@@ -6,6 +6,7 @@ import 'package:shramikaya/screens/authentication/login_screen.dart';
 import 'package:shramikaya/screens/home_page.dart';
 import 'package:shramikaya/utils/colors.dart';
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

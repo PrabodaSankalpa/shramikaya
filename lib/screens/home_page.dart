@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
     NotificationsPage(),
     ProfilePage(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
