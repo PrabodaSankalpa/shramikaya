@@ -13,6 +13,7 @@ class _BannerSliderState extends State<BannerSlider> {
   List imageList = [
     {"id": 1, "image_path": 'assets/banner_01.png'},
     {"id": 2, "image_path": 'assets/banner_02.png'},
+    {"id": 3, "image_path": 'assets/banner_03.jpg'},
   ];
   final CarouselController carouselController = CarouselController();
   int currentIndex = 0;

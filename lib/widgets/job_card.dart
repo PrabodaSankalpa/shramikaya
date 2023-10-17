@@ -15,7 +15,7 @@ class _JobCardState extends State<JobCard> {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       child: Container(
         width: double.infinity,
-        height: MediaQuery.of(context).size.height * 0.4,
+        height: 280,
         decoration: const BoxDecoration(
           boxShadow: [
             BoxShadow(blurRadius: 5.0, color: Colors.grey),

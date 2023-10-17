@@ -21,42 +21,46 @@ class _JobsPageState extends State<JobsPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "Shramikaya",
-            style: TextStyle(color: primaryColor),
-          ),
-          elevation: 0,
-          backgroundColor: Colors.white,
-          actions: [
-            IconButton(
-              onPressed: () {
-                showSearch(
-                  context: context,
-                  delegate: CustomSearchDelegate(),
-                );
-              },
-              icon: const Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
+          appBar: AppBar(
+            title: const Text(
+              "Shramikaya",
+              style: TextStyle(color: primaryColor),
             ),
-          ],
-        ),
-        body: Column(
-          children: [
-            BannerSlider(),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _jobs.length,
-                itemBuilder: (context, index) {
-                  return JobCard();
+            elevation: 0,
+            backgroundColor: Colors.white,
+            actions: [
+              IconButton(
+                onPressed: () {
+                  showSearch(
+                    context: context,
+                    delegate: CustomSearchDelegate(),
+                  );
                 },
+                icon: const Icon(
+                  Icons.search,
+                  color: Colors.black,
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+          body: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                expandedHeight: MediaQuery.of(context).size.height * 0.255,
+                flexibleSpace: const FlexibleSpaceBar(
+                  background: BannerSlider(),
+                ),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    return JobCard();
+                  },
+                  childCount: _jobs.length,
+                ),
+              ),
+            ],
+          )),
     );
   }
 }
