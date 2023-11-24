@@ -24,15 +24,17 @@ class _JobsPageState extends State<JobsPage> {
           appBar: AppBar(
             title: const Text(
               "Shramikaya",
-              style: TextStyle(color: primaryColor),
+              style: TextStyle(
+                color: primaryColor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             elevation: 0,
             backgroundColor: Colors.white,
             actions: [
               IconButton(
                 onPressed: () {
-                  showSearch(
-                    context: context,
+                  showSearch(                    context: context,
                     delegate: CustomSearchDelegate(),
                   );
                 },

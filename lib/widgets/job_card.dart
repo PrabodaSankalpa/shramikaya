@@ -45,7 +45,7 @@ class _JobCardState extends State<JobCard> {
                       width: 10,
                     ),
                     const Text(
-                      'Chamara Signhabahu',
+                      'Chamara Singhabahu',
                       style: TextStyle(fontSize: 18),
                     ),
                   ],

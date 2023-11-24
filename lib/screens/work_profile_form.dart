@@ -13,16 +13,16 @@ class WorkProfileForm extends StatefulWidget {
 
 class _WorkProfileFormState extends State<WorkProfileForm> {
   List<DropdownMenuItem<String>> menuItems = [
-    DropdownMenuItem(child: Text("USA"), value: "USA"),
-    DropdownMenuItem(child: Text("Canada"), value: "Canada"),
-    DropdownMenuItem(child: Text("Brazil"), value: "Brazil"),
-    DropdownMenuItem(child: Text("England"), value: "England"),
+    DropdownMenuItem(child: Text("Radio and TV"), value: "Radio and TV"),
+    DropdownMenuItem(child: Text("Gardening"), value: "Gardening"),
+    DropdownMenuItem(child: Text("Computer"), value: "Computer"),
+    DropdownMenuItem(child: Text("House and Home"), value: "House and Home"),
   ];
 
   TextEditingController _controllerDisplayName = new TextEditingController();
   TextEditingController _controllerMobileNumber = new TextEditingController();
   TextEditingController _controllerAddress = new TextEditingController();
-  String selectedValue = "USA";
+  String selectedValue = "Radio and TV";
 
   @override
   Widget build(BuildContext context) {
